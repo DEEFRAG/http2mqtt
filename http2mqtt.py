@@ -7,13 +7,11 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def get_id():
   if request.args.get('topic') == None or request.args.get('topic') == '':
-    #topic = 'testtopic'
-    return 'Send MQTT Publish Messages via HTTP GET Requests<br><br>Default Host: broker.mqttdashboard.com Port: 1883<br><br>Example: http://127.0.0.1:5000/?topic=MyTopic&message=MyMessage&host=broker.mqttdashboard.com&port=1883'
+    return 'topic not specified<br><br>Send MQTT Publish Messages via HTTP GET Requests<br><br>Default Host: broker.mqttdashboard.com Port: 1883<br><br>Example: http://127.0.0.1:5000/?topic=MyTopic&message=MyMessage&host=broker.mqttdashboard.com&port=1883'
   else:
     topic = request.args.get('topic')
   if request.args.get('message') == None or request.args.get('message') == '':
-    #message = 'testmessage'
-    return 'Send MQTT Publish Messages via HTTP GET Requests<br><br>Default Host: broker.mqttdashboard.com Port: 1883<br><br>Example: http://127.0.0.1:5000/?topic=MyTopic&message=MyMessage&host=broker.mqttdashboard.com&port=1883'
+    return 'message not specified<br><br>Send MQTT Publish Messages via HTTP GET Requests<br><br>Default Host: broker.mqttdashboard.com Port: 1883<br><br>Example: http://127.0.0.1:5000/?topic=MyTopic&message=MyMessage&host=broker.mqttdashboard.com&port=1883'
   else:
     message = request.args.get('message')
   if request.args.get('host') == None or request.args.get('host') == '':
@@ -26,7 +24,6 @@ def get_id():
     port = request.args.get('port')
     port = int(port)
   publish.single(topic, message, hostname=host, port=port)
-  #mqtt_topic, msg, qos=0, retain=False, hostname=mqtt_hostname, port=mqtt_port, client_id=mqtt_clientid, keepalive=60, will=None, auth=mqtt_auth, tls=None
   return 'send:<br>Topic: ' + topic + '<br> Message: ' + message + '<br>Host: ' + host + '<br>Port: ' + str(port)
 
 if __name__ == '__main__':
