@@ -20,3 +20,13 @@ Start it like this: python3 http2mqtt.py
 Default Host: broker.mqttdashboard.com Port: 1883
 
 Example: http://127.0.0.1:5000/?topic=MyTopic&message=MyMessage&host=broker.mqttdashboard.com&port=1883
+
+PHP Version:
+
+copy both php files to your Webserver.
+
+Default Host: mqtt://broker.hivemq.com:1883
+
+Example: https://deefrag.ct.ws/mqtt-publish-get.php?url=mqtt://broker.hivemq.com:1883&user=&password=&clientid=MyClientID&topic=MyTopic&message=MyMessage
+
+https://deefrag.ct.ws/mqtt?topic=Testtopic&message=Testmessage
